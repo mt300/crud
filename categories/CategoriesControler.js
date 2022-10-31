@@ -9,7 +9,7 @@ router.get('/categories', (req, res) => {
 });
 
 router.get("/admin/categories/new", (req,res) => {
-    res.send("Route to create a new categorie");
+    res.render("admin/categories/new");
 })
 
 module.exports = router;
