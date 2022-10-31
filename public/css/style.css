@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../imgs/math-bg.jpg");
+    /* background: rgba(0, 0, 0, 0.6); */
+}
+h1 {
+    font-family: monospace, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 92px;
+    padding: 40px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+}
+
+.elegantshadow {
+    color: #e4e3e3;
+    background-color: #0c0a0a;
+    letter-spacing: .05em;
+    text-shadow: 
+      4px 4px 0px #111010, 
+      7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.text-larger {
+    font-size: larger;
+
+}
+.align-items-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
