@@ -1,0 +1,39 @@
+<%- include("../../partials/header.ejs") %>
+<body>
+    <%- include("../../partials/navbar.ejs") %> 
+    <div class="container">
+        <hr>
+        <h2>Categories:</h2>
+        <br>
+        <a href="/admin/categories/new" class="btn btn-primary">New Category</a>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach( category =>{ %>
+                    <tr>
+                        <th><%= category.id %></th>
+                        <th><%= category.title %></th>
+                        <th><%= category.slug %></th>
+                        <th>
+                            <button class="btn btn-warning">Edit</button>
+                            <form method="POST" action="/categories/delete" style="display: inline;">
+                                <button class="btn btn-danger">Delete</button>
+                                <input type="hidden" name="id" value="<%= category.id %>">
+                            </form>
+                        </th>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>    
+    </div>
+</body>
+
+<%- include("../../partials/footer.ejs") %> 
