@@ -3,17 +3,31 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
+const session = require("express-ession");
 
 const categoriesController = require("./categories/CategoriesControler");
 const articlesController = require("./articles/ArticlesControler");
+const usersController = require("./user/UsersController");
 
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
+const User = require("./user/User");
 
+
+// View Engine
 app.set("view engine","ejs");
 
+// Sessions
+
+app.use(session({
+    secret: "rola",
+    cookie: {maxAge: 30000}
+}))
+
+// Static 
 app.use(express.static('public')); 
 
+// Body Parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -31,6 +45,7 @@ connection
 
 app.use("/",categoriesController);
 app.use("/",articlesController);
+app.use("/",usersController);
 
 
 // Routes
@@ -38,7 +53,8 @@ app.get('/', (req, res) => {
     Article.findAll({
         order:[
             ["id","DESC"]
-        ]
+        ],
+        limit: 4
     }).then(articles => {
         Category.findAll().then(categories => {
             res.render('index', {articles:articles, categories:categories});

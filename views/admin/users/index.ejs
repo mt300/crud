@@ -1,0 +1,36 @@
+<%- include("../../partials/header.ejs") %>
+<%- include("../../partials/navbar.ejs") %>
+
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2>Registered Users</h2>
+            <br>
+            <a href="/admin/users/create" class="btn btn-primary">New User</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead> 
+                    <tr>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <th><%= user.email %> </th>
+                            <th><%= user.password %> </th>
+                            <th><a href="/" class="btn btn-danger">Delete</a></th>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%- include("../../partials/header.ejs") %> 
