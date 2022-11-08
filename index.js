@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
-const session = require("express-ession");
+const session = require("express-session");
 
 const categoriesController = require("./categories/CategoriesControler");
 const articlesController = require("./articles/ArticlesControler");
@@ -21,8 +21,10 @@ app.set("view engine","ejs");
 
 app.use(session({
     secret: "rola",
-    cookie: {maxAge: 30000}
-}))
+    cookie: {maxAge: 300000000}
+}));
+
+
 
 // Static 
 app.use(express.static('public')); 
