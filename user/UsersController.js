@@ -6,7 +6,7 @@ const adminAuth = require("../middlewares/adminAuth");
 
 router.get("/admin/users", adminAuth, (req,res) => {
     User.findAll().then( users => {
-        res.render("admin/users/index", {users:users});
+        res.render("admin/users/index", {users:users, session: req.session.user});
     })
 
 });

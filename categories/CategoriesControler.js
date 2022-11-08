@@ -24,7 +24,7 @@ router.post('/categories/save', (req, res) => {
 
 router.get('/admin/categories', adminAuth, (req, res) => {
     Category.findAll().then( categories => {
-        res.render("admin/categories/index", {categories:categories});
+        res.render("admin/categories/index", {categories:categories, session: req.session.user});
     });
 });
 
@@ -54,7 +54,7 @@ router.get("/admin/categories/edit/:id", adminAuth, (req,res) => {
     }
     Category.findByPk(id).then(category => {
         if(category != undefined){
-            res.render("admin/categories/edit", {category: category});
+            res.render("admin/categories/edit", {category: category, session: req.session.user});
         }else{
             res.redirect("/admin/categories");
         }

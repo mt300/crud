@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
         limit: 4
     }).then(articles => {
         Category.findAll().then(categories => {
-            res.render('index', {articles:articles, categories:categories});
+            res.render('index', {articles:articles, categories:categories, session: req.session.user});
         });
     });
 });
@@ -73,7 +73,7 @@ app.get('/:slug', (req, res) => {
   }).then(article => {
     if( article != undefined){
         Category.findAll().then(categories => {
-            res.render('article', {article:article, categories:categories});
+            res.render('article', {article:article, categories:categories, session: req.session.user});
         });
     }else{
         res.redirect("/");
@@ -93,7 +93,7 @@ app.get('/category/:slug', (req, res) => {
     }).then( category => {
         if(category != undefined){
             Category.findAll().then(categories => {
-                res.render("index", {categories: categories, articles:category.articles});
+                res.render("index", {categories: categories, articles:category.articles, session: req.session.user});
             })
         }else{
             res.redirect("/");
