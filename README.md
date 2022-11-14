@@ -2,7 +2,7 @@
 
 ## Description
   
-  This project is a forum web app with MYSQL integration.
+  This project is an articles repository web app with MYSQL integration.
   
 ## HOW TO RUN
 
