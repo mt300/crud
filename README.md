@@ -18,3 +18,5 @@
    1. It's only local hosted so you will have no database features unless create some mysql db's and configure the `database/database.js`
    2. The port used to run the aplication is 3000, make sure it's not been used for any other purposes. 
    3. The main focus for this project where the backend so, sometimes, frontend may seens to need more love.
+
+## ADMIN ACCESS RIGTHS
